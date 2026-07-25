@@ -66,4 +66,11 @@ The validation script automatically generates empirical performance proofs. Belo
 ## ⚖️ License & Intellectual Property
 This project is open-sourced under the terms of the [Apache 2.0 License](LICENSE). All rights to the core mathematical formulations, architectural pipelines, and research documentation remain fully protected under the published Zenodo DOI (`10.5281/zenodo.21532310`).
 
+---
+
+### 📌 Operational Scope & Known Boundaries
+
+* **Computational Overhead:** SVD decomposition complexity scales with activation tensor dimensions $O(\min(m^2 n, m n^2))$; optimized for runtime batch execution under sub-1ms SLA.
+* **Layer Placement:** Designed explicitly for intermediate convolutional/dense feature activation maps ($B \times C \times H \times W$).
+* **Threat Model Focus:** Targets runtime adversarial perturbations and out-of-distribution (OOD) activation noise shifts.
 
