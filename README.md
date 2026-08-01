@@ -4,6 +4,8 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21532310.svg)](https://doi.org/10.5281/zenodo.21532310)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Precision: Float64](https://img.shields.io/badge/Precision-IEEE%20754%20Float64-orange.svg)](https://doi.org/10.5281/zenodo.21532310)
+[![Python versions](https://img.shields.io/badge/Python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue.svg)](https://python.org)
+[![Solana Ready](https://img.shields.io/badge/Solana-Off--Chain%20Guardrail%20Ready-blueviolet.svg)](SOLANA_INTEGRATION.md)
 ---
 
 ## 📊 Enterprise Audit & Hard-Truth Verification
@@ -60,6 +62,7 @@ The validation script automatically generates empirical performance proofs. Belo
 ## 🔒 Security, Integrity & Enterprise Compliance
 * **Precision Locking:** The framework enforces global double-precision rules to maintain mathematical bounds and eliminate numerical drift during deep neural execution cycles.
 * **Cryptographic Checksums:** Execution scripts compute automated SHA-256 cryptographic hashes for core modules to verify data integrity and establish verifiable trust during enterprise deployment.
+* **Security Policy:** We adhere to strict vulnerability disclosure protocols. Please reference [`SECURITY.md`](SECURITY.md) for vulnerability reporting guidelines.
 
 ---
 
@@ -80,8 +83,8 @@ The target SLA applies strictly to CUDA-accelerated hardware runtimes. Sequentia
 
 | Execution Environment | Hardware / Accelerator | SVD Kernel Overhead | Total Pipeline SLA | Assertion Gate |
 | :--- | :--- | :--- | :--- | :--- |
-| **Production Target (Tier 1)** | NVIDIA A100/H100 CUDA | 0.0564 ms | **< 1.00 ms** | Enforced |
-| **Local Diagnostic (Tier 2)** | Kali Linux CPU VM | 12.7750 ms | Non-Realtime Fallback | Math Convergence Only |
+| **Production Target (Tier 1)** | NVIDIA A100/H100 CUDA | 0.0564 ms | **< 1.00 ms** | Enforced SLA Assertion |
+| **CPU VM Diagnostics (Tier 2)** | Local / Kali Linux CPU VM | 12.7750 ms | Non-Realtime Fallback | Math Convergence Only |
 
 > **Note on `astra_fast_test.py`**: The diagnostic script evaluates mathematical convergence (Orthogonality Error $\le 10^{-12}$, Residual Noise Floor $\le 10^{-12}$). Latency metrics logged during local CPU runs reflect VM host scheduling overhead and do not gate the test `[PASSED]` status.
 ### 2. Empirical Adversarial Robustness Matrix ($\epsilon = 8/255$, $L_\infty$ norm)
