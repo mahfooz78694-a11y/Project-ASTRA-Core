@@ -31,4 +31,4 @@ jobs:
 
     - name: Test Core Rigor and Verification Suite
       run: |
-        pytest tests/test_academic_rigor.py -v
+        python -m pytest tests/test_academic_rigor.py -v
